@@ -1,0 +1,4 @@
+SOURCE = \
+scaleAdaptiveMultiphaseFoam.C \
+
+# sources
