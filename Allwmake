@@ -1,0 +1,2 @@
+wmake -j ./multiphaseSystem
+wmake -j 

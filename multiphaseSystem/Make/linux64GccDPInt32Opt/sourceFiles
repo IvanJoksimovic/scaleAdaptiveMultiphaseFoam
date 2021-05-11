@@ -79,7 +79,7 @@ $(heatTransfer)/constantNu/constantNuHeatTransfer.C \
 $(heatTransfer)/RanzMarshall/RanzMarshall.C \
 $(heatTransfer)/sphericalHeatTransfer/sphericalHeatTransfer.C \
 $(phaseTransfer)/phaseTransferModel/phaseTransferModel.C \
-$(phaseTransfer)/deposition/deposition.C \
+$(phaseTransfer)/requiredAverageCorrection/requiredAverageCorrection.C \
 $(swarm)/swarmCorrection/swarmCorrection.C \
 $(swarm)/noSwarm/noSwarm.C \
 $(swarm)/TomiyamaSwarm/TomiyamaSwarm.C \

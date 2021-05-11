@@ -111,7 +111,8 @@ $(heatTransfer)/sphericalHeatTransfer/sphericalHeatTransfer.C
 
 phaseTransfer = interfacialModels/phaseTransferModels
 $(phaseTransfer)/phaseTransferModel/phaseTransferModel.C
-$(phaseTransfer)/deposition/deposition.C
+$(phaseTransfer)/requiredAverageCorrection/requiredAverageCorrection.C
+
 
 swarm = interfacialModels/swarmCorrections
 $(swarm)/swarmCorrection/swarmCorrection.C

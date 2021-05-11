@@ -222,8 +222,7 @@ void Foam::PhaseTransferPhaseSystem<BasePhaseSystem>::correct()
         phaseTransferModelIter
     )
     {
-        *rDmdt_[phaseTransferModelIter.key()] +=
-            phaseTransferModelIter()->dmdt();
+        *rDmdt_[phaseTransferModelIter.key()] += phaseTransferModelIter()->dmdt();
     }
 }
 

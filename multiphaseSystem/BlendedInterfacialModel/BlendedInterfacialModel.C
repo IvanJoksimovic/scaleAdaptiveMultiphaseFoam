@@ -153,7 +153,8 @@ Foam::BlendedInterfacialModel<ModelType>::evaluate
                 << exit(FatalError);
         }
 
-        x.ref() += (model_().*method)(args ...)*(scalar(1) - f1() - f2());
+        //x.ref() += (model_().*method)(args ...)*(scalar(1) - f1() - f2()); This is really badly defined
+        x.ref() += (model_().*method)(args ...)*(scalar(1));
     }
 
     if (model1In2_)
