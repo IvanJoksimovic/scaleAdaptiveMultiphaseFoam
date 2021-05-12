@@ -72,6 +72,8 @@ private:
 
         const scalar totalMeshV;
 
+        volScalarField cellWeigth;
+
 public:
 
     //- Runtime type information

@@ -55,8 +55,25 @@ Foam::phaseTransferModels::requiredAverageCorrection::requiredAverageCorrection
     phaseName(dict.get<word>("phase")),
     reguiredAverage(dict.get<scalar>("reguiredAverage")),
     relaxationFactor(dict.getOrDefault<scalar>("relaxation",1.0)),
-    totalMeshV(gSum((*(&pair_.phase1())).mesh().V()))
+    totalMeshV(gSum((*(&pair_.phase1())).mesh().V())),
+    cellWeigth
+    (
+        IOobject
+        (
+            "cellWeigth",
+            (*(&pair_.phase1())).mesh().time().timeName(),
+            (*(&pair_.phase1())).mesh(),
+            IOobject::NO_READ,
+            IOobject::NO_WRITE
+        ),
+        (*(&pair_.phase1())).mesh(),
+        dimensionedScalar(dimensionSet(0,0,0,0,0,0,0), Zero),
+        calculatedFvPatchField<scalar>::typeName
+    )
 {
+	const fvMesh& mesh = (*(&pair_.phase1())).mesh();
+
+	cellWeigth.primitiveFieldRef() = mesh.V()/totalMeshV;
 }
 
 
@@ -98,7 +115,7 @@ Foam::phaseTransferModels::requiredAverageCorrection::dmdt() const
     Info << "requiredAverage = " << reguiredAverage << endl;
     Info << "correction      = " << correction      << endl;
     Info << "-------------------------------------" << endl;
-    return relaxationFactor*correction*rho/dt; //rho/dt;
+    return relaxationFactor*cellWeigth*correction*rho/dt; //rho/dt;
 }
 
 
